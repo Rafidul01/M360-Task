@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGetProductsQuery } from "../services/productApi";
-import { Table, Pagination, Button, Space, Image } from 'antd';
+import { Table, Pagination, Button, Space, Image, Spin } from 'antd';
 import { Link } from "react-router-dom";
 import { Product } from "../types/product";
 
@@ -9,7 +9,7 @@ const ProductListPage = () => {
   const [page, setPage] = useState(1);
   const { data, isLoading } = useGetProductsQuery({ skip: (page - 1) * 10, limit: 10 });
 
-  if (isLoading) return <p>Loading....</p>
+  if (isLoading) return <Spin size="large" className="w-full flex justify-center items-center" />;
 
   const columns = [
     {

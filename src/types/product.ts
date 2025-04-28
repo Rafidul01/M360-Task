@@ -19,6 +19,8 @@ export interface Product {
 export interface Review {
     id: number;
     comment: string;
+    rating: number;
+    
 }
 export interface ProductResponse {
     products: Product[];
