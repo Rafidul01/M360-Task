@@ -2,10 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useGetProductsQuery } from './services/productApi'
 
 function App() {
   const [count, setCount] = useState(0)
+  const { data, error, isLoading } = useGetProductsQuery({ limit: 10, skip: 0 });
 
+  if(isLoading) return <p>Loading....</p>
+  
+  console.log(data);
   return (
     <>
       <div>
