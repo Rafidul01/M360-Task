@@ -14,13 +14,18 @@ export interface Product {
     availabilityStatus: string;
     tags: string[];
     warrantyInformation: string;
+    shippingInformation: string;
+    minimumOrderQuantity: string;
+    returnPolicy: string;
 }
 
 export interface Review {
+    reviewerName: string;
     id: number;
     comment: string;
     rating: number;
     
+
 }
 export interface ProductResponse {
     products: Product[];
