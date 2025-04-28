@@ -11,6 +11,9 @@ export interface Product {
     thumbnail: string;
     images: string[];
     reviews?: Review[];
+    availabilityStatus: string;
+    tags: string[];
+    warrantyInformation: string;
 }
 
 export interface Review {
