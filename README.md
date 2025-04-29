@@ -39,10 +39,10 @@ Follow the steps below to run this project locally:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/m360-ict-ecommerce.git
+git clone https://github.com/Rafidul01/M360-Task.git
 
 # 2. Navigate to the project directory
-cd m360-ict-ecommerce
+cd M360-Task
 
 # 3. Install dependencies
 npm install
