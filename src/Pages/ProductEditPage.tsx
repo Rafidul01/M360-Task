@@ -35,7 +35,7 @@ const ProductEditPage: React.FC = () => {
         }
     };
 
-    if (isLoading || !product) return <Spin size="large" className="w-full flex justify-center" />;
+    if (isLoading || !product) return <div className="h-[calc(100vh-181px)] flex justify-center items-center"><Spin size="large" className="w-full flex justify-center" />;</div>
 
     console.log(categories);
 

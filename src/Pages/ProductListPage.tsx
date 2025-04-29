@@ -10,7 +10,7 @@ const ProductListPage = () => {
   const [page, setPage] = useState(1);
   const { data, isLoading } = useGetProductsQuery({ skip: (page - 1) * 10, limit: 10 });
 
-  if (isLoading) return <Spin size="large" className="w-full flex justify-center items-center" />;
+  if (isLoading) return <div className="h-[calc(100vh-181px)] flex justify-center items-center"><Spin size="large" className="w-full flex justify-center" />;</div>
 
   const columns = [
     {
@@ -55,26 +55,28 @@ const ProductListPage = () => {
 
   console.log(data);
   return (
-    <div className="flex justify-center items-center mt-8">
-      <Space direction="vertical" className="w-full max-w-[1000px] px-4 mx-auto">
+    <div className="flex flex-col justify-center items-center mt-8">
+      <Space direction="vertical" className="w-full max-w-[1000px]  mx-auto shadow-lg">
         <Table
           columns={columns}
           dataSource={data?.products}
           loading={isLoading}
           pagination={false}
           rowKey="id"
-          scroll={{ x: 'max-content' }} // ensures horizontal scroll on smaller screens
+          scroll={{ x: 'max-content' }}
+          bordered
+          
         />
-        <div className="flex justify-center mt-4">
-          <Pagination
-            current={page}
-            total={data?.total}
-            onChange={setPage}
-            pageSize={10}
-            showSizeChanger={false}
-          />
-        </div>
       </Space>
+      <div className="flex justify-center mt-4">
+        <Pagination
+          current={page}
+          total={data?.total}
+          onChange={setPage}
+          pageSize={10}
+          showSizeChanger={false}
+        />
+      </div>
     </div>
   );
 };

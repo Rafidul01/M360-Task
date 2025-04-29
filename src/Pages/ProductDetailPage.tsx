@@ -8,11 +8,10 @@ const ProductDetailPage = () => {
     const { id } = useParams<{ id: string }>();
     const { data: product, isLoading, isError } = useGetProductByIdQuery(Number(id));
 
-    if (isLoading) return <Spin size="large" className="w-full flex justify-center" />;
+    if (isLoading) return <div className="h-[calc(100vh-181px)] flex justify-center items-center"><Spin size="large" className="w-full flex justify-center" />;</div>
     if (isError) return <Alert message="Error fetching product details" type="error" showIcon />;
 
-    const priceAfterDiscount = product &&
-        product.price - (product.price * (product.discountPercentage / 100));
+    const priceAfterDiscount = product && product.price - (product.price * (product.discountPercentage / 100));
 
 
 
