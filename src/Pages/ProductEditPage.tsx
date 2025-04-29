@@ -37,7 +37,7 @@ const ProductEditPage: React.FC = () => {
 
     if (isLoading || !product) return <div className="h-[calc(100vh-181px)] flex justify-center items-center"><Spin size="large" className="w-full flex justify-center" />;</div>
 
-    
+
 
     return (
         <div style={{ padding: 24, maxWidth: 900, margin: "0 auto" }}>
@@ -92,12 +92,13 @@ const ProductEditPage: React.FC = () => {
                     <Form.Item name="minimumOrderQuantity" label="Minimum Order Quantity">
                         <Input />
                     </Form.Item>
+                    <Form.Item name="discountPercentage" label="Discount Percentage">
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name="returnPolicy" label="Return Policy">
+                        <Input />
+                    </Form.Item>
                 </div>
-
-
-                <Form.Item name="returnPolicy" label="Return Policy">
-                    <Input />
-                </Form.Item>
 
                 <Form.Item name="tags" label="Tags">
                     <Select mode="tags" style={{ width: "100%" }} />

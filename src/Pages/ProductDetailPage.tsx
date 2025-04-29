@@ -37,7 +37,7 @@ const ProductDetailPage = () => {
                         <Image.PreviewGroup>
                             <Space direction="vertical" className="w-full" >
                                 <div className="flex justify-center">
-                                    <Image
+                                    <img
                                         src={product?.images?.[0] || product?.thumbnail}
                                         alt={product?.title}
                                         className="rounded-lg max-h-96 object-cover"
