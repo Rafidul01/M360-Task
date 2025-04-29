@@ -1,54 +1,51 @@
-# React + TypeScript + Vite
+# 🧩 M360 ICT E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modular and scalable e-commerce interface built using **React**, **TypeScript**, **Redux Toolkit (RTK Query)**, **Ant Design**, and **Tailwind CSS**. This project demonstrates modern frontend engineering practices including API integration, form management, dynamic rendering, and UI composition.
 
-Currently, two official plugins are available:
+## 🔗 Live Deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[🚀 Live Preview](https://m360ict-ec.netlify.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+| Tech                | Role / Purpose                           |
+|---------------------|------------------------------------------|
+| **React**           | UI rendering library                     |
+| **TypeScript**      | Static type checking                     |
+| **Redux Toolkit**   | RTK Query                                |
+| **RTK Query**       | Declarative data fetching and caching    |
+| **Ant Design**      | Component library for rich UIs           |
+| **Tailwind CSS**    | Utility-first CSS for custom styling     |
+| **React Router**    | Routing and view navigation              |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 Features Overview
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Paginated Product Listing**
+- **Product Detail View**
+- **Product Editing with Reviews**
+- **Category Selection via API**
+- **Form Validation & Submission**
+- **Futuristic UI Design with Tailwind + Ant Design**
+
+---
+
+## 🛠️ Installation & Setup
+
+Follow the steps below to run this project locally:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/m360-ict-ecommerce.git
+
+# 2. Navigate to the project directory
+cd m360-ict-ecommerce
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm run dev
