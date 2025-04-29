@@ -19,8 +19,8 @@ const ProductDetailPage = () => {
         <div className="p-4 max-w-7xl mx-auto">
             <Row gutter={[24, 24]}>
                 {/* {Image section} */}
-                <Col xs={24} md={12}>
-                    <Card className="h-full">
+                <Col xs={24} md={12} >
+                    <Card className="h-full ">
                         <Image.PreviewGroup>
                             <Space direction="vertical" className="w-full">
                                 <div className="flex justify-center">
@@ -57,7 +57,7 @@ const ProductDetailPage = () => {
                         </div>
 
 
-                        <Descriptions bordered column={1}>
+                        <Descriptions bordered column={1} className="rounded-lg shadow-lg">
                             <Descriptions.Item label="Brand">
                                 {product?.brand || 'N/A'}
                             </Descriptions.Item>
@@ -74,7 +74,7 @@ const ProductDetailPage = () => {
                                 </Space>
                             </Descriptions.Item>
 
-                            <Descriptions.Item label="Rating">
+                            <Descriptions.Item label="Rating" >
                                 <Rate
                                     allowHalf
                                     defaultValue={product?.rating}
@@ -131,13 +131,13 @@ const ProductDetailPage = () => {
                         </Descriptions>
 
                         {/* Product Description */}
-                        <Card title="Description" className="mt-4">
+                        <Card title="Description" className="mt-4 rounded-lg shadow-lg">
                             <Text>{product?.description}</Text>
                         </Card>
 
                         {/* Reviews Section */}
                         {product && product?.reviews && product?.reviews?.length > 0 && (
-                            <Card title="Reviews" className="mt-4">
+                            <Card title="Reviews" className="mt-4 rounded-lg shadow-lg">
                                 <Space direction="vertical" className="w-full ">
                                     {product?.reviews.map((review, index) => (
                                         <Card key={index} size="small" className="w-full">
