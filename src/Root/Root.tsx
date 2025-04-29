@@ -1,5 +1,6 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Layout, Menu, theme } from 'antd';
+import logo from "../../public/logo.png";
 const { Header, Content, Footer } = Layout;
 
 const Root = () => {
@@ -24,9 +25,12 @@ const Root = () => {
                     width: '100%',
                     display: 'flex',
                     alignItems: 'center',
+                    gap: '1rem',
                 }}
             >
-                <div className="demo-logo" />
+                <div className=" shadow-white " >
+                    <Link to="/"><img src={logo} alt="Logo" className="h-10 bg-white p-1" /></Link>
+                </div>
                 <Menu
                     theme="dark"
                     mode="horizontal"
@@ -34,6 +38,7 @@ const Root = () => {
                     items={items}
                     style={{ flex: 1, minWidth: 0 }}
                 />
+
             </Header>
             <Content className="p-0">
                 <div
