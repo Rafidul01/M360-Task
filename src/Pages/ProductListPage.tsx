@@ -80,7 +80,7 @@ const ProductListPage = () => {
         />
       </Space>
 
-      <div className="flex justify-between items-center mt-4 px-4 w-full max-w-[1000px]">
+      <div className="flex flex-col md:flex-row gap-4 justify-between items-center mt-4 px-4 w-full max-w-[1000px]">
         {!showAll && (
           <Pagination
             current={page}
@@ -97,7 +97,7 @@ const ProductListPage = () => {
         <Button
           onClick={() => {
             setShowAll(prev => !prev);
-            setPage(1); // reset to page 1 when toggling
+            setPage(1); 
           }}
           type="dashed"
         >

@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../services/productApi";
 import { Alert, Button, Card, Col, Descriptions, Image, Rate, Row, Space, Spin, Tag, Typography } from "antd";
-import {EditOutlined} from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 const { Text } = Typography;
- 
+
 const ProductDetailPage = () => {
     const { id } = useParams<{ id: string }>();
     const { data: product, isLoading, isError } = useGetProductByIdQuery(Number(id));
@@ -17,12 +17,25 @@ const ProductDetailPage = () => {
 
     return (
         <div className="p-4 max-w-7xl mx-auto">
+            <div className="mb-4">
+                <div className="flex justify-between items-center">
+                    <h1 className="md:text-2xl text-md  font-semibold" >{product?.title}</h1>
+                    <Link to={`/product/edit/${product?.id}`}>
+                        <Button type="primary" danger icon={<EditOutlined />} >Edit</Button>
+                    </Link>
+
+                </div>
+            </div>
+
             <Row gutter={[24, 24]}>
+
+
                 {/* {Image section} */}
-                <Col xs={24} md={12} >
-                    <Card className="h-full ">
+                <Col xs={24} md={12}  >
+
+                    <Card style={{ border: '1px solid #b6bbbf' }} >
                         <Image.PreviewGroup>
-                            <Space direction="vertical" className="w-full">
+                            <Space direction="vertical" className="w-full" >
                                 <div className="flex justify-center">
                                     <Image
                                         src={product?.images?.[0] || product?.thumbnail}
@@ -30,13 +43,13 @@ const ProductDetailPage = () => {
                                         className="rounded-lg max-h-96 object-cover"
                                     />
                                 </div>
-                                <Row gutter={[8, 8]}>
+                                <Row gutter={[8, 8]} >
                                     {product?.images?.map((img, index) => (
                                         <Col key={index} xs={12} sm={8} md={12} lg={8}>
                                             <Image
                                                 src={img}
                                                 alt={`Product image ${index + 1}`}
-                                                className="rounded-lg max-h-32 object-cover"
+                                                className="rounded-lg max-h-32 object-cover shadow-lg"
                                             />
                                         </Col>
                                     ))}
@@ -48,30 +61,26 @@ const ProductDetailPage = () => {
 
                 <Col xs={24} md={12}>
                     <Space direction="vertical" className="w-full">
-                        <div className="flex justify-between items-center">
-                            <h1 className="md:text-2xl text-md  font-semibold" >{product?.title}</h1>
-                            <Link to={`/product/edit/${product?.id}`}>
-                                <Button type="primary" danger icon={<EditOutlined />} >Edit</Button>
-                            </Link>
-
-                        </div>
 
 
-                        <Descriptions bordered column={1} className="rounded-lg shadow-lg">
+
+                        <Descriptions bordered column={1} className="rounded-lg shadow-lg" style={{ border: '1px solid #b6bbbf' }}>
                             <Descriptions.Item label="Brand">
                                 {product?.brand || 'N/A'}
                             </Descriptions.Item>
 
-                            <Descriptions.Item label="Price">
-                                <Space>
-                                    <Text delete className="text-gray-500">
-                                        ${product?.price.toFixed(2)}
-                                    </Text>
-                                    <Text strong className="text-green-600">
-                                        ${priceAfterDiscount?.toFixed(2)}
-                                    </Text>
+                            <Descriptions.Item label="Price" >
+                                <div className="flex flex-col md:flex-row items-center gap-2 ">
+                                    <div className="flex flex-col md:flex-row items-center gap-2">
+                                        <Text delete className="text-gray-500">
+                                            ${product?.price.toFixed(2)}
+                                        </Text>
+                                        <Text strong className="text-green-600">
+                                            ${priceAfterDiscount?.toFixed(2)}
+                                        </Text>
+                                    </div>
                                     <Tag color="red">-{product?.discountPercentage}%</Tag>
-                                </Space>
+                                </div>
                             </Descriptions.Item>
 
                             <Descriptions.Item label="Rating" >
@@ -131,13 +140,13 @@ const ProductDetailPage = () => {
                         </Descriptions>
 
                         {/* Product Description */}
-                        <Card title="Description" className="mt-4 rounded-lg shadow-lg">
+                        <Card title="Description" className="mt-4 rounded-lg shadow-lg" style={{ border: '1px solid #b6bbbf' }}>
                             <Text>{product?.description}</Text>
                         </Card>
 
                         {/* Reviews Section */}
                         {product && product?.reviews && product?.reviews?.length > 0 && (
-                            <Card title="Reviews" className="mt-4 rounded-lg shadow-lg">
+                            <Card title="Reviews" className="mt-4 rounded-lg shadow-lg" style={{ border: '1px solid #b6bbbf' }}>
                                 <Space direction="vertical" className="w-full ">
                                     {product?.reviews.map((review, index) => (
                                         <Card key={index} size="small" className="w-full">
