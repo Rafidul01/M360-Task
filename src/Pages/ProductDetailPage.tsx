@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../services/productApi";
 import { Alert, Button, Card, Col, Descriptions, Image, Rate, Row, Space, Spin, Tag, Typography } from "antd";
-
+import {EditOutlined} from '@ant-design/icons';
 const { Text } = Typography;
-
+ 
 const ProductDetailPage = () => {
     const { id } = useParams<{ id: string }>();
     const { data: product, isLoading, isError } = useGetProductByIdQuery(Number(id));
@@ -52,7 +52,7 @@ const ProductDetailPage = () => {
                         <div className="flex justify-between items-center">
                             <h1 className="md:text-2xl text-md  font-semibold" >{product?.title}</h1>
                             <Link to={`/product/edit/${product?.id}`}>
-                                <Button type="primary" danger >Edit</Button>
+                                <Button type="primary" danger icon={<EditOutlined />} >Edit</Button>
                             </Link>
 
                         </div>

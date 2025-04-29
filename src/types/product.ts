@@ -34,4 +34,6 @@ export interface ProductResponse {
     limit: number;
 }
 
-export type CategoryResponse = string[];
+export type CategoryResponse = {
+    name: string,
+};

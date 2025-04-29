@@ -3,6 +3,7 @@ import { useGetProductsQuery } from "../services/productApi";
 import { Table, Pagination, Button, Space, Image, Spin } from 'antd';
 import { Link } from "react-router-dom";
 import { Product } from "../types/product";
+import { EditOutlined } from "@ant-design/icons";
 
 
 const ProductListPage = () => {
@@ -30,16 +31,24 @@ const ProductListPage = () => {
       dataIndex: 'thumbnail'
     },
     { title: 'Title', dataIndex: 'title' },
-    { title: 'Brand',
-      render: (_ : string, record: Product) => record.brand || 'N/A', 
-      dataIndex: 'brand' },
+    {
+      title: 'Brand',
+      render: (_: string, record: Product) => record.brand || 'N/A',
+      dataIndex: 'brand'
+    },
     { title: 'Price', dataIndex: 'price', render: (value: number) => `$${value}` },
     {
       title: 'Action',
       render: (record: Product) => (
-        <Link to={`/products/${record.id}`}>
-          <Button type="primary" >View Details</Button>
-        </Link>
+        <div className="flex gap-2">
+          <Link to={`/products/${record.id}`}>
+            <Button type="primary" >View Details</Button>
+          </Link>
+          <Link to={`/product/edit/${record?.id}`}>
+            <Button type="primary" danger icon={<EditOutlined />} >Edit</Button>
+          </Link>
+        </div>
+
       ),
     },
   ];
@@ -47,13 +56,14 @@ const ProductListPage = () => {
   console.log(data);
   return (
     <div className="flex justify-center items-center mt-8">
-      <Space direction="vertical" className="w-[1000px]">
+      <Space direction="vertical" className="w-full max-w-[1000px] px-4 mx-auto">
         <Table
           columns={columns}
           dataSource={data?.products}
           loading={isLoading}
           pagination={false}
           rowKey="id"
+          scroll={{ x: 'max-content' }} // ensures horizontal scroll on smaller screens
         />
         <div className="flex justify-center mt-4">
           <Pagination
